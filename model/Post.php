@@ -61,4 +61,37 @@ class Post
   {
     return $this->image;
   }
+
+  /**
+   * Static function used to fetch all posts from database
+   */
+
+  static public function fetchAll(): array
+  {
+    // quick and dirty database connection
+    $dbh = new PDO('mysql:host=localhost:3306;dbname=tp_blog', 'root', '');
+
+    // quick and dirty query
+    $sql = 'SELECT * FROM post';
+    $stmt = $dbh->prepare($sql);
+    $stmt->execute();
+    $postsData = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+    // build Post objects
+    $posts = [];
+
+    foreach($postsData as $postData) {
+      $post = new Post(
+        $postData['id_post'],
+        $postData['title'],
+        $postData['content'],
+        $postData['date'],
+        $postData['id_author'],
+        $postData['image']
+      );
+      $posts[] = $post;
+    }
+
+    return $posts;
+  }
 }
