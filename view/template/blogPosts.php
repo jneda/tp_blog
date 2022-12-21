@@ -1,6 +1,6 @@
 <section class="container is-fluid">
   <?php
-  for ($i = 0; $i < 4; $i++) {
+  foreach ($posts as $post) {
     require 'blogPost.php';
 
   }

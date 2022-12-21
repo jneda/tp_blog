@@ -2,7 +2,6 @@
 
 require_once './model/Post.php';
 $posts = Post::fetchAll();
-var_dump($posts);
 
 ob_start();
 require './view/template/hero.php';

@@ -5,13 +5,16 @@
     </p>
   </figure> -->
   <div class="media-content">
-    <h2 class=" title is-4">Titre du billet</h2>
+    <h2 class=" title is-4"><?= $post->getTitle() ?></h2>
+    <figure class="image">
+      <img src="<?= $post->getImage() ?>" alt="image">
+    </figure>
     <div class="content">
       <p class="author">
-        <strong>John Smith</strong> <small>@johnsmith</small> <small class="datetime">31m</small>
+        <strong><?= $post->getAuthorId() ?></strong> <small>@johnsmith</small> <small class="datetime"><?= $post->getDate() ?></small>
       </p>
-      <p class="post-content">
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin ornare magna eros, eu pellentesque tortor vestibulum ut. Maecenas non massa sem. Etiam finibus odio quis feugiat facilisis.
+      <p class="post-content is-size-5">
+        <?= $post->getContent() ?>
       </p>
     </div>
 
