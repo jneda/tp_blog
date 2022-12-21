@@ -7,7 +7,7 @@
   <div class="media-content">
     <h2 class=" title is-4"><?= $post->getTitle() ?></h2>
     <figure class="image">
-      <img src="<?= $post->getImage() ?>" alt="image">
+      <img style="width: 25%;"  src="<?= $post->getImage() ?>" alt="image">
     </figure>
     <div class="content">
       <p class="author">
