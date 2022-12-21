@@ -9,7 +9,7 @@ class Post
   private string $title;
   private string $content;
   private string $date;
-  private int $authorId;
+  private User $author;
   private string $image;
 
   public function __construct(
@@ -17,14 +17,14 @@ class Post
     string $title,
     string $content,
     string $date,
-    int $authorId,
+    User $author,
     string $image
   ) {
     $this->id = $id;
     $this->title = $title;
     $this->content = $content;
     $this->date = $date;
-    $this->authorId = $authorId;
+    $this->author = $author;
     $this->image = $image;
   }
 
@@ -52,9 +52,9 @@ class Post
     return $this->date;
   }
 
-  public function getAuthorId(): int
+  public function getauthor(): User
   {
-    return $this->authorId;
+    return $this->author;
   }
 
   public function getImage(): string
@@ -86,7 +86,7 @@ class Post
         $postData['title'],
         $postData['content'],
         $postData['date'],
-        $postData['id_author'],
+        User::getById($postData['id_author']),
         $postData['image']
       );
       $posts[] = $post;

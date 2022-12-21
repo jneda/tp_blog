@@ -55,9 +55,7 @@ class User
     $stmt = $dbh->prepare($sql);
     $stmt->execute(['id' => $id]);
     $userData = $stmt->fetch(PDO::FETCH_ASSOC);
-    // var_dump($userData);
-    $user = new User($userData['username'], $userData['email']);
-    var_dump($user);
-    return $user;
+    
+    return new User($userData['username'], $userData['email']);
   }
 }
